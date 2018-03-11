@@ -46,6 +46,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'ervandew/supertab'
 
 " Do not load vim-pyenv until *.py is opened and
 " make sure that it is loaded after jedi-vim is loaded.
@@ -69,26 +70,6 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-
-
-
-set nocompatible             " be iMproved, required 
-filetype off                 " required
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-"Plugin 'lambdalisue/vim-pyenv'
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-"let g:python_host_prog = "/usr/local/var/pyenv/shims/python2"
-"let g:python3_host_prog = "/usr/local/var/pyenv/shims/python3"
- 
-
 if jedi#init_python()
   function! s:jedi_auto_force_py_version() abort
     let major_version = pyenv#python#get_internal_major_version()
@@ -101,10 +82,12 @@ if jedi#init_python()
   augroup END
 endif
 
+" Set pyenv using python
 let g:pyenv#python_exec = "/usr/local/var/pyenv/shims/python"
 
 let g:pymode_rope = 0
 
+" Set python docstring to below
 set splitbelow
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
