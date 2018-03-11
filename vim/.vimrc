@@ -1,26 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
+" Maintainer:
+"       Jhengsh - jhengsh.email@gmail.com
+"
+" Raw Maintainer:
 "       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
+" From:
+"       https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 "
 " Version: 
 "       6.0 - 01/04/17 14:24:34 
-"
-" Blog_post: 
-"       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
-"
-" Awesome_version:
-"       Get this config, nice color schemes and lots of plugins!
-"
-"       Install the awesome version from:
-"
-"           https://github.com/amix/vimrc
-"
-" Syntax_highlighted:
-"       http://amix.dk/vim/vimrc.html
-"
-" Raw_version: 
-"       http://amix.dk/vim/vimrc.txt
 "
 " Sections:
 "    -> General
@@ -357,6 +346,11 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
+" Save and Execute shell script in VIM
+map <F5> :w<CR>:!%:p<CR>
+
+" Save and Execute python in VIM
+map <F9> :w<CR>:!python %<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
