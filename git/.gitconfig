@@ -1,0 +1,9 @@
+[user]
+	name = Jhengsh
+    email = jhengsh.email@gmail.com
+
+[alias]
+  co = checkout
+  br = branch
+  st = status
+  l = log --oneline --graph
