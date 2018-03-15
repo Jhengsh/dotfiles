@@ -35,7 +35,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/jhengsh/.vim/bundle/neobundle.vim/
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle'))
@@ -70,6 +70,7 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
+" Set python autocomplete using pyenv
 if jedi#init_python()
   function! s:jedi_auto_force_py_version() abort
     let major_version = pyenv#python#get_internal_major_version()
