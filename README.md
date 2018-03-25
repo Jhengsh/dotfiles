@@ -37,7 +37,7 @@ $ cp ./bash/.bash_profile ~/
 
 ## Git config
 ```sh
-$ cp ./git/.gitconfig
+$ cp ./git/.gitconfig && cp ./git/.gitignore_global
 ```
 
 ## vim
