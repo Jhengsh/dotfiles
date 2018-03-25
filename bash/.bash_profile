@@ -11,6 +11,8 @@ alias drmi='docker rmi'
 alias drmin='dRmNone'
 alias dstart='docker start'
 alias dstop='docker stop'
+alias dr='docker run'
+alias dn='docker network'
 
 # Set pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
@@ -33,3 +35,6 @@ function drmc(){
   docker ps -aq --filter "status=created" | xargs -n 1 docker rm
 }
 
+function convpy(){
+  sed -e ':a' -e 'N' -e '$!ba' -e 's/\n\n# In\[[0-9\]*]:\n\n/ /g' $1 | sed -n '2,$'p
+}
