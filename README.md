@@ -49,3 +49,10 @@ $ cp ./vim/.vimrc ~/ &&
 $ vim +NeoBundleInstall +qall
 ```
 
+## Tmux
++ conf copy from (https://github.com/gpakosz/.tmux)[https://github.com/gpakosz/.tmux]
+```
+$ cp ./tmux/.tmux.conf ~/ &&
+    ./tmux/.tmux.conf.local ~/
+```
+

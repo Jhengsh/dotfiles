@@ -11,6 +11,7 @@ alias drmi='docker rmi'
 alias drmin='dRmNone'
 alias dstart='docker start'
 alias dstop='docker stop'
+alias dstopa='dStopAll'
 alias dr='docker run'
 alias dn='docker network'
 
@@ -28,13 +29,18 @@ function dRmAll(){
 }
 
 function dRmNone(){
-  docker images | grep -E '^<none>' | awk '{print $3}' | xargs -n 1 docker rmi
+  docker images | awk '{if ( $1 == "<none>" ) print $3}' | xargs -n 1 docker rmi
 }
 
 function drmc(){
   docker ps -aq --filter "status=created" | xargs -n 1 docker rm
 }
 
+function dStopAll(){
+  docker ps -aq | xargs -n 1 docker stop
+}
+
 function convpy(){
   sed -e ':a' -e 'N' -e '$!ba' -e 's/\n\n# In\[[0-9\]*]:\n\n/ /g' $1 | sed -n '2,$'p
 }
+
