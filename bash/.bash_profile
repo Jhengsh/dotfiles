@@ -2,6 +2,9 @@
 alias ll='ls -lah'
 alias rm='trash'
 
+# tmux alias
+alias tm='tmux'
+
 # docker alias
 alias di='docker images'
 alias dps='docker ps -a'

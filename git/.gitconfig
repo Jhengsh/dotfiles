@@ -1,9 +1,18 @@
 [user]
-	name = Jhengsh
-    email = jhengsh.email@gmail.com
+  name = Jhengsh
+  email = jhengsh.email@gmail.com
 
 [alias]
   co = checkout
   br = branch
   st = status
   l = log --oneline --graph
+[core]
+	excludesfile = /Users/jhengsh/.gitignore_global
+	whitespace = cr-at-eol
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
