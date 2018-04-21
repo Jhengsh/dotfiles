@@ -4,9 +4,12 @@ alias rm='trash'
 
 # tmux alias
 alias tm='tmux'
+alias tma='tmux a -t'
+alias tml='tmux ls'
 
 # docker alias
 alias di='docker images'
+alias de='docker exec'
 alias dps='docker ps -a'
 alias drm='docker rm'
 alias drma='dRmAll'
