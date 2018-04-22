@@ -4,6 +4,7 @@
 
 [alias]
   co = checkout
+  ch = checkout
   br = branch
   st = status
   l = log --oneline --graph
