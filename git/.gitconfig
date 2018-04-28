@@ -3,6 +3,7 @@
   email = jhengsh.email@gmail.com
 
 [alias]
+  cm = commit
   co = checkout
   ch = checkout
   br = branch
