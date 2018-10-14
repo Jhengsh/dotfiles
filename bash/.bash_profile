@@ -23,30 +23,38 @@ alias dn='docker network'
 
 # Set pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
 
 # Set R locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Set NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
 # User define function
-function dRmAll(){
-   docker ps -qa --filter "status=exited" | xargs -n 1 docker rm
+function gityapf() {
+	git status | tee | grep 'modified\|new file' | grep .py | sed 's/modified://g' | sed 's/new file://g' | xargs -n1 yapf -ir
 }
 
-function dRmNone(){
-  docker images | awk '{if ( $1 == "<none>" ) print $3}' | xargs -n 1 docker rmi
+function dRmAll() {
+	docker ps -qa --filter "status=exited" | xargs -n 1 docker rm
 }
 
-function drmc(){
-  docker ps -aq --filter "status=created" | xargs -n 1 docker rm
+function dRmNone() {
+	docker images | awk '{if ( $1 == "<none>" ) print $3}' | xargs -n 1 docker rmi
 }
 
-function dStopAll(){
-  docker ps -aq | xargs -n 1 docker stop
+function drmc() {
+	docker ps -aq --filter "status=created" | xargs -n 1 docker rm
 }
 
-function convpy(){
-  sed -e ':a' -e 'N' -e '$!ba' -e 's/\n\n# In\[[0-9\]*]:\n\n/ /g' $1 | sed -n '2,$'p
+function dStopAll() {
+	docker ps -aq | xargs -n 1 docker stop
 }
 
+function convpy() {
+	sed -e ':a' -e 'N' -e '$!ba' -e 's/\n\n# In\[[0-9\]*]:\n\n/ /g' $1 | sed -n '2,$'p
+}

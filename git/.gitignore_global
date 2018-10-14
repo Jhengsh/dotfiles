@@ -1,2 +1,14 @@
 .DS_Store
 .ipynb_checkpoints/
+.pytest_cache/
+.vscode/
+__pycache__/
+tmp/
+*.json
+*.pkl
+*.pickle
+*.jpeg
+*.jpg
+*.png
+.*
+config.py*
