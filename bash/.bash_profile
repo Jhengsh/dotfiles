@@ -31,6 +31,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
+# JAVA_HOME
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+
+# Allow multithreading applications
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # Gcloud Setting
 export CLOUDSDK_PYTHON=/usr/local/var/pyenv/shims/python3
 
