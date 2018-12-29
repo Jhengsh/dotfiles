@@ -56,3 +56,9 @@ $ cp ./tmux/.tmux.conf ~/ &&
     ./tmux/.tmux.conf.local ~/
 ```
 
+## Jupyter-Notebook
+```
+pip install jupyter_contrib_nbextensions
+jupyter nbextension enable execute_time/ExecuteTime
+jupyter nbextension enable varInspector/main
+```
