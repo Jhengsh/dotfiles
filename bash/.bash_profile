@@ -45,6 +45,13 @@ function gityapf() {
 	git status | tee | grep 'modified\|new file' | grep .py | sed 's/modified://g' | sed 's/new file://g' | xargs -n1 yapf -ir
 }
 
+function gitdm(){
+    BRANCH=$1
+    MERGED_BRANCH=${BRANCH:-master}
+    echo  "Delete branch which already merge to $MERGED_BRANCH"
+    git branch --merged $MERGED_BRANCH | grep -v $MERGED_BRANCH | xargs -n 1 git branch -d
+}
+
 function drma() {
 	docker ps -qa --filter "status=exited" | xargs -n 1 docker rm
 }
@@ -65,7 +72,7 @@ function dstopa() {
 }
 
 function dud() {
-    du -h -d 1
+    du -h -d 1 | sort -hr
 }
 
 function convpy() {
