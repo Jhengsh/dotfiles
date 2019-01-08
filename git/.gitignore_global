@@ -15,4 +15,7 @@ tmp/
 .*
 temp*
 tmp*
+test.txt
+test.py
 config.py*
+Untitled*.ipynb
