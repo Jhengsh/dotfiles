@@ -17,6 +17,7 @@ alias dstart='docker start'
 alias dstop='docker stop'
 alias dr='docker run'
 alias dn='docker network'
+alias gitfp='git fetch --prune'
 
 # Set pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
