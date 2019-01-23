@@ -39,7 +39,7 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Gcloud Setting
-export CLOUDSDK_PYTHON=/usr/local/var/pyenv/shims/python3
+export CLOUDSDK_PYTHON=/usr/local/var/pyenv/shims/python
 
 # User define function
 function gityapf() {
@@ -79,3 +79,12 @@ function dud() {
 function convpy() {
 	sed -e ':a' -e 'N' -e '$!ba' -e 's/\n\n# In\[[0-9\]*]:\n\n/ /g' $1 | sed -n '2,$'p
 }
+
+function iconvbu() {
+    RAW_FILE=$1
+    NEW_FILE=$2
+    NEW_FILE=${NEW_FILE:-$RAW_FILE.utf8}
+    iconv -f BIG-5 -t UTF-8 $RAW_FILE > $RAW_FILE.tmp
+    mv $RAW_FILE.tmp $NEW_FILE
+}
+
