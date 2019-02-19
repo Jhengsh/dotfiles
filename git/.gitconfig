@@ -9,12 +9,17 @@
   br = branch
   st = status
   l = log --oneline --graph
+  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  fp = "!git fetch --prune"
+
 [core]
-	excludesfile = /Users/jhengsh/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	whitespace = cr-at-eol
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
