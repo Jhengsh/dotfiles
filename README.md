@@ -25,7 +25,10 @@ $ brew install bash \
     trash \
     nmap \
     p7zip \
-    tree
+    tree \
+    bat \
+    fd \
+    rg
 
 $ brew cast install iina sourcetree
 ```
