@@ -89,5 +89,29 @@ function iconvbu() {
 }
 
 function lf(){
-    ls -alh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '4,$'p
+    while [[ "$#" -gt 0 ]]
+    do
+        case $1 in
+        -f|--file)
+            local want_type="file"
+            ;;
+        -d|--directory)
+            local want_type="directory"
+            ;;
+        -a|--all)
+            local want_type="all"
+            ;;
+        esac
+        shift
+    done
+
+    if [[ "$want_type" -eq "directory" ]]; then
+        ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
+    elif [[ "$want_type" -eq "file" ]]; then
+        ls -alh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
+    elif [[ "$want_type" -eq "directory" ]]; then
+        ls -alh | grep '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
+    else;
+        ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
+    fi
 }
