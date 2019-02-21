@@ -88,3 +88,6 @@ function iconvbu() {
     mv $RAW_FILE.tmp $NEW_FILE
 }
 
+function lf(){
+    ls -alh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '4,$'p
+}
