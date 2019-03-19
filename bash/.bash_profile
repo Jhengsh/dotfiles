@@ -72,6 +72,14 @@ function dstopa() {
 	docker ps -aq | xargs -n 1 docker stop
 }
 
+function drmf() {
+    CONTAINER_ID=$1
+    echo "Stop Container $CONTAINER_ID"
+    docker stop $CONTAINER_ID
+    echo "remove Container $CONTAINER_ID"
+    docker rm $CONTAINER_ID
+}
+
 function dud() {
     du -h -d 1 | sort -hr
 }
