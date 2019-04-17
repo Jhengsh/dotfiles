@@ -15,6 +15,7 @@ $ brew install bash \
     git \
     node \
     parallel \
+    zlib \
     cmake \
     htop \
     vim \
