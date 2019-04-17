@@ -23,6 +23,11 @@ alias gitfp='git fetch --prune'
 export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
 
+# Export variables for pyenv install 3.7
+export LDFLAGS="-L/usr/local/opt/zlib/lib"                                                             jhengsh@Jhengshs-MBP
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+
 # Set R locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -79,6 +84,7 @@ function drmf() {
     echo "remove Container $CONTAINER_ID"
     docker rm $CONTAINER_ID
 }
+
 
 function dud() {
     du -h -d 1 | sort -hr

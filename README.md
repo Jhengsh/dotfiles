@@ -32,6 +32,7 @@ $ brew install bash \
     rg
 
 $ brew cast install iina sourcetree
+$ brew info zlib # find header files
 ```
 
 ## Bash
@@ -41,7 +42,7 @@ $ cp ./bash/.bash_profile ~/
 
 ## Git config
 ```sh
-$ cp ./git/.gitconfig && cp ./git/.gitignore_global
+$ cp ./git/.gitconfig ~/ && cp ./git/.gitignore_global ~/
 ```
 
 ## vim
