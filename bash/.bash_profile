@@ -24,9 +24,16 @@ export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
 
 # Export variables for pyenv install 3.7
-export LDFLAGS="-L/usr/local/opt/zlib/lib"                                                             jhengsh@Jhengshs-MBP
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+# export LDFLAGS="-L/usr/local/opt/zlib/lib"                                                             jhengsh@Jhengshs-MBP
+# export CPPFLAGS="-I/usr/local/opt/zlib/include"
+# export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+
+# Set Spark PATH
+export SPARK_HOME=~/Spark
+export PATH=$PATH:$SPARK_HOME/bin
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+
 
 # Set R locale
 export LANG=en_US.UTF-8
