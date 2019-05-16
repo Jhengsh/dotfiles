@@ -109,6 +109,17 @@ function iconvbu() {
     mv $RAW_FILE.tmp $NEW_FILE
 }
 
+function load_env() {
+    ENV_FILE=$1
+    ENV_FILE=${NEW_FILE:-.env}
+    export $(grep -v '^#' .env | xargs )
+}
+
+function jupyter_serve() {
+    FILE=$1
+    jupyter nbconvert $FILE --to slides --post serve
+}
+
 function lf(){
     while [[ "$#" -gt 0 ]]
     do
