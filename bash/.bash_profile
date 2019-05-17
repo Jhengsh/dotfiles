@@ -117,7 +117,9 @@ function load_env() {
 
 function jupyter_serve() {
     FILE=$1
-    jupyter nbconvert $FILE --to slides --post serve
+    PORT=$2
+    PORT=${PORT:-8000}
+    jupyter nbconvert $FILE --to slides --post serve --ServePostProcessor.port=$PORT
 }
 
 function lf(){
