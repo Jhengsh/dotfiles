@@ -47,6 +47,9 @@ export NVM_DIR="$HOME/.nvm"
 # JAVA_HOME
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
+# flutter
+export PATH=$PATH:~/flutter/bin
+
 # Allow multithreading applications
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
@@ -119,6 +122,7 @@ function jupyter_serve() {
     FILE=$1
     PORT=$2
     PORT=${PORT:-8000}
+    rm -f ${FILE:0:-5}slides.html
     jupyter nbconvert $FILE --to slides --post serve --ServePostProcessor.port=$PORT
 }
 

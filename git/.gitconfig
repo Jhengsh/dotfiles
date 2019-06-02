@@ -16,6 +16,14 @@
 	excludesfile = ~/.gitignore_global
 	whitespace = cr-at-eol
 
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
