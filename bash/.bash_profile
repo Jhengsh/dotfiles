@@ -34,7 +34,6 @@ export PATH=$PATH:$SPARK_HOME/bin
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 
-
 # Set R locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -45,7 +44,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # JAVA_HOME
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+if [ -f "/usr/libexec/java_home" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+fi
 
 # flutter
 export PATH=$PATH:~/flutter/bin
@@ -143,13 +144,16 @@ function lf(){
         shift
     done
 
-    if [[ "$want_type" -eq "directory" ]]; then
+    if [[ "$want_type" -eq "directory" ]]
+    then
         ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
-    elif [[ "$want_type" -eq "file" ]]; then
+    elif [[ "$want_type" -eq "file" ]]
+    then
         ls -alh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
-    elif [[ "$want_type" -eq "directory" ]]; then
+    elif [[ "$want_type" -eq "directory" ]]
+    then
         ls -alh | grep '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
-    else;
+    elsel
         ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
     fi
 }
