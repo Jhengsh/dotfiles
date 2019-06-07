@@ -18,6 +18,7 @@ alias dstop='docker stop'
 alias dr='docker run'
 alias dn='docker network'
 alias gitfp='git fetch --prune'
+alias gitst='git status'
 
 # Set pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
@@ -153,7 +154,7 @@ function lf(){
     elif [[ "$want_type" -eq "directory" ]]
     then
         ls -alh | grep '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
-    elsel
+    else
         ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
     fi
 }
