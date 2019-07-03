@@ -25,7 +25,7 @@ export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
 
 # Export variables for pyenv install 3.7
-# export LDFLAGS="-L/usr/local/opt/zlib/lib"                                                             jhengsh@Jhengshs-MBP
+# export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
 # export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
 
