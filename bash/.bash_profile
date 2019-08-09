@@ -17,8 +17,10 @@ alias dstart='docker start'
 alias dstop='docker stop'
 alias dr='docker run'
 alias dn='docker network'
+alias dc='docker-compose'
 alias gitfp='git fetch --prune'
 alias gitst='git status'
+alias clean_known_hosts='rm ~/.ssh/known_hosts'
 
 # Set pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
@@ -100,6 +102,10 @@ function drmf() {
 
 function dud() {
     du -h -d 1 | sort -hr
+}
+
+function dis(){
+    docker images | awk 'NR<2{print $0;next}{print $0| "sort -k7 -hr"}'
 }
 
 function convpy() {
