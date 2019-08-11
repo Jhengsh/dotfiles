@@ -21,6 +21,7 @@ alias dc='docker-compose'
 alias gitfp='git fetch --prune'
 alias gitst='git status'
 alias clean_known_hosts='rm ~/.ssh/known_hosts'
+alias get_ip='curl http://checkip.amazonaws.com'
 
 # Set pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
