@@ -53,6 +53,15 @@ if [ -f "/usr/libexec/java_home" ]; then
     export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 fi
 
+# GVM
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+    export VSCODE_CONFIG_DIR="$HOME/Library/Application Support/Code - Insiders/User"
+    export VSCODE_EXTENSIONS_DIR="$HOME/.vscode-insiders/extensions"
+fi
+
 # flutter
 export PATH=$PATH:~/flutter/bin
 
