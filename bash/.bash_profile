@@ -1,6 +1,5 @@
 # Set Alias in Terminal
 alias ll='ls -lah'
-alias rm='trash'
 
 # tmux alias
 alias tm='tmux'
@@ -48,6 +47,9 @@ export NVM_DIR="$HOME/.nvm"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+    # Set Alias in Terminal
+    alias rm='trash'
 
     # JAVA_HOME
     if [ -f "/usr/libexec/java_home" ]; then
@@ -177,3 +179,4 @@ function lf(){
         ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
     fi
 }
+
