@@ -46,6 +46,10 @@ export NVM_DIR="$HOME/.nvm"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+    # Set pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Set Alias in Terminal

@@ -29,7 +29,8 @@ $ brew install bash \
     tree \
     bat \
     fd \
-    rg
+    rg \
+    dos2unix
 
 $ brew cast install iina sourcetree
 $ brew info zlib # find header files
