@@ -30,7 +30,8 @@ $ brew install bash \
     bat \
     fd \
     rg \
-    dos2unix
+    dos2unix \
+    postgresql
 
 $ brew cast install iina sourcetree
 $ brew info zlib # find header files
@@ -60,6 +61,11 @@ $ vim +NeoBundleInstall +qall
 ```
 $ cp ./tmux/.tmux.conf ~/ &&
     ./tmux/.tmux.conf.local ~/
+```
+
+## Change Mac config
+```sh
+sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true
 ```
 
 ## Jupyter-Notebook

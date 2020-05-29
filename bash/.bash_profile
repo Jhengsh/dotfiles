@@ -78,6 +78,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Gcloud Setting
     export CLOUDSDK_PYTHON=/usr/local/var/pyenv/shims/python
+
+    alias macunzip='ditto -V -x -k --sequesterRsrc'
 fi
 
 # flutter

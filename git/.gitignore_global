@@ -13,7 +13,6 @@ tmp/
 *.jpg
 *.png
 .*
-temp*
 tmp*
 test.txt
 test.py
