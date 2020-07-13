@@ -31,7 +31,8 @@ $ brew install bash \
     fd \
     rg \
     dos2unix \
-    postgresql
+    postgresql \
+    convmv
 
 $ brew cast install iina sourcetree
 $ brew info zlib # find header files
