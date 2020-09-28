@@ -164,8 +164,8 @@ function jupyter_serve() {
 function range() {
     START=$1
     END=$2
-    START=${PORT:-0}
-    END=${PORT:-9}
+    START=${START:-0}
+    END=${END:-9}
     for i in {$START..$END};do echo $i; done
 }
 
