@@ -29,7 +29,7 @@ alias get_ip='curl http://checkip.amazonaws.com'
 alias getip='curl http://checkip.amazonaws.com'
 
 # Export variables for pyenv install 3.7
-# export LDFLAGS="-L/usr/local/opt/zlib/lib"
+# export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
 # export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
 
@@ -159,6 +159,14 @@ function jupyter_serve() {
     PORT=${PORT:-8000}
     rm -f ${FILE:0:-5}slides.html
     jupyter nbconvert $FILE --to slides --post serve --ServePostProcessor.port=$PORT
+}
+
+function range() {
+    START=$1
+    END=$2
+    START=${PORT:-0}
+    END=${PORT:-9}
+    for i in {$START..$END};do echo $i; done
 }
 
 function lf(){
