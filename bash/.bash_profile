@@ -16,17 +16,21 @@ alias dstart='docker start'
 alias dstop='docker stop'
 alias dst='docker stats --no-stream'
 alias dr='docker run'
+alias dlf='docker logs -f'
 alias dn='docker network'
 alias dc='docker-compose'
 alias gitfp='git fetch --prune'
 alias gitst='git status'
 alias gitcom='git checkout master'
 alias gitpu='git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`'
+
+# alias for shortcut
 alias clean_known_hosts='rm ~/.ssh/known_hosts'
 alias clean_ipynb_checkpoints='find . -type d | grep "\.ipynb_checkpoints/\?" | xargs -n1 rm -rf'
 alias clean_ds_store='find . | grep "\.DS_Store$" | xargs -n1 rm'
 alias get_ip='curl http://checkip.amazonaws.com'
 alias getip='curl http://checkip.amazonaws.com'
+alias pingdns='ping 8.8.8.8'
 
 # Export variables for pyenv install 3.7
 # export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
