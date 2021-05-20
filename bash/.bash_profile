@@ -33,9 +33,9 @@ alias getip='curl http://checkip.amazonaws.com'
 alias pingdns='ping 8.8.8.8'
 
 # Export variables for pyenv install 3.7
-# export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
-# export CPPFLAGS="-I/usr/local/opt/zlib/include"
-# export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
 
 # Set Spark PATH
 export SPARK_HOME=~/Spark
@@ -60,6 +60,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
+    alias ip4='ip -4 addr'
+    alias getintip='ip -4 addr | grep eth0 | grep inet | awk '{print $2}''
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Set Alias in Terminal
