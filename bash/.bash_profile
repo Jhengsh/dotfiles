@@ -32,11 +32,6 @@ alias get_ip='curl http://checkip.amazonaws.com'
 alias getip='curl http://checkip.amazonaws.com'
 alias pingdns='ping 8.8.8.8'
 
-# Export variables for pyenv install 3.7
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
-
 # Set Spark PATH
 export SPARK_HOME=~/Spark
 export PATH=$PATH:$SPARK_HOME/bin
@@ -61,7 +56,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
     alias ip4='ip -4 addr'
-    alias getintip='ip -4 addr | grep eth0 | grep inet | awk '{print $2}''
+    alias getintip='ip -4 addr | grep eth0 | grep inet | sed -e "s/inet//g" -e "s/brd.*//g" -e "s/ //g" -e "s/\/24//g"'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Set Alias in Terminal
@@ -80,6 +75,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
     export VSCODE_CONFIG_DIR="$HOME/Library/Application Support/Code - Insiders/User"
     export VSCODE_EXTENSIONS_DIR="$HOME/.vscode-insiders/extensions"
+
+    # Export variables for pyenv install 3.7
+    export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
+    export CPPFLAGS="-I/usr/local/opt/zlib/include"
+    export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
 
     # Allow multithreading applications
     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
