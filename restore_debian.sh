@@ -10,4 +10,4 @@ cp ./git/.gitconfig ~/ && cp ./git/.gitignore_global ~/
 # sed -i -e "s/export PYENV_ROOT/# export PYENV_ROOT/g" ~/.bash_profile.local
 # sed -i -e "s/if which pyenv/# if which pyenv/g" ~/.bash_profile.local
 
-echo "\nsource ~/.bash_profile.local # load my config" >> ~/.bash_profile
+echo -e "\nsource ~/.bash_profile.local # load my config" >> ~/.bashrc
