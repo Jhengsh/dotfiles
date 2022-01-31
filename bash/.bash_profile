@@ -24,6 +24,13 @@ alias gitst='git status'
 alias gitcom='git checkout master'
 alias gitpu='git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`'
 
+# K8S
+alias ku='kubectl'
+alias kupo='kubectl get pod | grep -v Completed'
+alias kuap='kubectl apply -f'
+alias kulog='kubectl logs'
+
+
 # alias for shortcut
 alias clean_known_hosts='rm ~/.ssh/known_hosts'
 alias clean_ipynb_checkpoints='find . -type d | grep "\.ipynb_checkpoints/\?" | xargs -n1 rm -rf'
@@ -31,16 +38,6 @@ alias clean_ds_store='find . | grep "\.DS_Store$" | xargs -n1 rm'
 alias get_ip='curl http://checkip.amazonaws.com'
 alias getip='curl http://checkip.amazonaws.com'
 alias pingdns='ping 8.8.8.8'
-
-# Set Spark PATH
-export SPARK_HOME=~/Spark
-export PATH=$PATH:$SPARK_HOME/bin
-export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
-
-# Set R locale
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # Set NVM
 export NVM_DIR="$HOME/.nvm"
@@ -56,11 +53,15 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
     alias ip4='ip -4 addr'
-    alias getintip='ip -4 addr | grep eth0 | grep inet | sed -e "s/inet//g" -e "s/brd.*//g" -e "s/ //g" -e "s/\/24//g"'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Set Alias in Terminal
     alias rm='trash'
+    alias macunzip='ditto -V -x -k --sequesterRsrc'
+
+    # Set R locale
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
 
     # JAVA_HOME
     if [ -f "/usr/libexec/java_home" ]; then
@@ -84,14 +85,19 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Allow multithreading applications
     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-    # Gcloud Setting
-    export CLOUDSDK_PYTHON=/usr/local/var/pyenv/shims/python
+    # Add PATH
+    export PATH=~/bin:$PATH
 
-    alias macunzip='ditto -V -x -k --sequesterRsrc'
+    # Set Spark PATH
+    export SPARK_HOME=~/Spark
+    export PATH=$PATH:$SPARK_HOME/bin
+    export PYSPARK_DRIVER_PYTHON=jupyter
+    export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+
+    # flutter
+    export PATH=$PATH:~/flutter/bin
+
 fi
-
-# flutter
-export PATH=$PATH:~/flutter/bin
 
 # User define function
 function gityapf() {
@@ -113,7 +119,7 @@ function dstarta() {
     docker ps -qa --filter "status=exited" | xargs -n 1 docker start
 }
 function drmin() {
-	docker images | awk '{if ( $1 == "<none>" ) print $3}' | xargs -n 1 docker rmi
+	docker images | awk '{if ( $1 == "<none>" || $2 == "<none>" ) print $3}' | xargs -n 1 docker rmi
 }
 
 function drmc() {
@@ -132,6 +138,13 @@ function drmf() {
     docker rm $CONTAINER_ID
 }
 
+function getintip() {
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        ip -4 addr | grep eth0 | grep inet | sed -e "s/inet//g" -e "s/brd.*//g" -e "s/ // g" -e "s/\/24//g"
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        ifconfig | grep "inet " | grep "broadcast" | sed -e "s/inet//g" -e "s/netmask.*//g" -e $'s/\t//g' -e "s/ //g"
+    fi
+}
 
 function dud() {
     du -h -d 1 | sort -hr
@@ -139,6 +152,10 @@ function dud() {
 
 function dis(){
     docker images | awk 'NR<2{print $0;next}{print $0| "sort -k7 -hr"}'
+}
+
+function poetryfreeze(){
+    poetry export | grep "==" | sed -e 's/;.*//g'
 }
 
 function convpy() {
