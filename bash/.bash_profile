@@ -70,6 +70,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Set pyenv
     export PYENV_ROOT=/usr/local/var/pyenv
+    export PATH="/usr/local/var/pyenv/shims:$PATH"
     if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
 
     # GVM
@@ -222,4 +223,3 @@ function lf(){
         ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
     fi
 }
-
