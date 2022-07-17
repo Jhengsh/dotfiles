@@ -1,5 +1,7 @@
 # Set Alias in Terminal
 alias ll='ls -lah'
+alias loadenv='load_env'
+alias pe="poetry export | grep '==' | grep -v 'pypiwin32' | grep -v 'pywin32' | sed 's/;.*//g' | sed 's/ .*//g'"
 
 # tmux alias
 alias tm='tmux'
@@ -29,7 +31,7 @@ alias ku='kubectl'
 alias kupo='kubectl get pod | grep -v Completed'
 alias kuap='kubectl apply -f'
 alias kulog='kubectl logs'
-
+alias kugetres='kubectl describe nodes | grep -A 4 Resource'
 
 # alias for shortcut
 alias clean_known_hosts='rm ~/.ssh/known_hosts'
@@ -58,6 +60,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Set Alias in Terminal
     alias rm='trash'
     alias macunzip='ditto -V -x -k --sequesterRsrc'
+
+    function convertheic() {
+        for i in *.HEIC(:r) ; sips -s format jpeg "$i.HEIC" --out "$i.jpg"
+    }
 
     # Set R locale
     export LANG=en_US.UTF-8
@@ -155,6 +161,10 @@ function dis(){
     docker images | awk 'NR<2{print $0;next}{print $0| "sort -k7 -hr"}'
 }
 
+function digr(){
+     docker images | grep $1
+ }
+
 function poetryfreeze(){
     poetry export | grep "==" | sed -e 's/;.*//g'
 }
@@ -192,6 +202,15 @@ function range() {
     END=${END:-9}
     for i in {$START..$END};do echo $i; done
 }
+
+# K8S
+
+function kudel() {
+     POD_NAME=$1
+     NAMESPACE=$2
+     NAMESPACE=${NAMESPACE:--A}
+     kubectl get pod $NAME | grep $POD_NAME | awk '{print $1}' | xargs -n1 kubectl delete pod
+ }
 
 function lf(){
     while [[ "$#" -gt 0 ]]
