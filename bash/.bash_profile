@@ -2,6 +2,7 @@
 alias ll='ls -lah'
 alias loadenv='load_env'
 alias pe="poetry export | grep '==' | grep -v 'pypiwin32' | grep -v 'pywin32' | sed 's/;.*//g' | sed 's/ .*//g'"
+alias grepem='grep -v "^\s*$"'
 
 # tmux alias
 alias tm='tmux'
@@ -96,10 +97,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH=~/bin:$PATH
 
     # Set Spark PATH
-    export SPARK_HOME=~/Spark
-    export PATH=$PATH:$SPARK_HOME/bin
-    export PYSPARK_DRIVER_PYTHON=jupyter
-    export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+    # export SPARK_HOME=~/Spark
+    # export PATH=$PATH:$SPARK_HOME/bin
+    # export PYSPARK_DRIVER_PYTHON=jupyter
+    # export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 
     # flutter
     export PATH=$PATH:~/flutter/bin
