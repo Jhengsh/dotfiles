@@ -63,7 +63,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias macunzip='ditto -V -x -k --sequesterRsrc'
 
     function convertheic() {
-        for i in *.HEIC(:r) ; sips -s format jpeg "$i.HEIC" --out "$i.jpg"
+        for i in *.HEIC ; sips -s format jpeg "$i" --out "$i.jpg"
     }
 
     # Set R locale
