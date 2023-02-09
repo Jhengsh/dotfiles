@@ -4,9 +4,11 @@
 .vscode/
 __pycache__/
 tmp/
+frontend_version
+backend_version
 *.tar
 *.zip
-*.json
+# *.json
 *.pkl
 *.pickle
 *.jpeg
@@ -21,3 +23,6 @@ Untitled*.ipynb
 try.sql
 try.txt
 try.py
+**/.terraform/*
+*.tfstate
+*.tfstate.*

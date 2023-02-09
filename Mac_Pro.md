@@ -1,5 +1,5 @@
 # dotfile
-config file for my Mac
+config file for my Mac Pro
 
 ## Install Homebrew
 + [Homebrew Introduction](https://brew.sh/)

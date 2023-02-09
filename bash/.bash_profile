@@ -62,23 +62,26 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias rm='trash'
     alias macunzip='ditto -V -x -k --sequesterRsrc'
 
-    function convertheic() {
-        for i in *.HEIC ; sips -s format jpeg "$i" --out "$i.jpg"
-    }
+#    function convertheic() {
+#        for i in *.HEIC ; sips -s format jpeg "$i" --out "$i.jpg"
+#    }
 
     # Set R locale
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
 
     # JAVA_HOME
-    if [ -f "/usr/libexec/java_home" ]; then
-        export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-    fi
+    # if [ -f "/usr/libexec/java_home" ]; then
+    #     export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+    # fi
 
     # Set pyenv
-    export PYENV_ROOT=/usr/local/var/pyenv
-    export PATH="/usr/local/var/pyenv/shims:$PATH"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
+    # export PYENV_ROOT=/usr/local/var/pyenv
+    # export PATH="/usr/local/var/pyenv/shims:$PATH"
+    # if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
 
     # GVM
     [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
@@ -103,7 +106,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 
     # flutter
-    export PATH=$PATH:~/flutter/bin
+    # export PATH=$PATH:~/flutter/bin
 
 fi
 
