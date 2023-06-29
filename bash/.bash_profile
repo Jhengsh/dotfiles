@@ -11,7 +11,7 @@ alias tml='tmux ls'
 
 # docker alias
 alias di='docker images'
-alias de='docker exec'
+alias de='docker exec -u 0 -it'
 alias dps='docker ps -a'
 alias drm='docker rm'
 alias drmi='docker rmi'
@@ -57,6 +57,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     if which pyenv >/dev/null; then eval "$(pyenv init -)"; fi
     alias ip4='ip -4 addr'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+    export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
     # Set Alias in Terminal
     alias rm='trash'
@@ -170,7 +172,7 @@ function digr(){
  }
 
 function poetryfreeze(){
-    poetry export | grep "==" | sed -e 's/;.*//g'
+    poetry export --without-hashes | grep "==" | sed -e 's/;.*//g'
 }
 
 function convpy() {
