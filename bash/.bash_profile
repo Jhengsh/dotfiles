@@ -41,6 +41,7 @@ alias clean_ds_store='find . | grep "\.DS_Store$" | xargs -n1 rm'
 alias get_ip='curl http://checkip.amazonaws.com'
 alias getip='curl http://checkip.amazonaws.com'
 alias pingdns='ping 8.8.8.8'
+alias claudedc='claude --dangerously-skip-permissions --continue'
 
 # Set NVM
 export NVM_DIR="$HOME/.nvm"
