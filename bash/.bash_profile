@@ -42,6 +42,8 @@ alias get_ip='curl http://checkip.amazonaws.com'
 alias getip='curl http://checkip.amazonaws.com'
 alias pingdns='ping 8.8.8.8'
 alias claudedc='claude --dangerously-skip-permissions --continue'
+alias clauded='claude --dangerously-skip-permissions'
+alias install_playwright='npm install -g @playwright/cli@latest;playwright-cli install --skills'
 
 # Set NVM
 export NVM_DIR="$HOME/.nvm"
@@ -249,3 +251,6 @@ function lf(){
         ls -lh | grep -v '^d' | awk 'BEGIN{}{print $9}' | sed -n '2,$'p
     fi
 }
+
+export PATH=~/.local/bin:$PATH
+. "$HOME/.cargo/env"

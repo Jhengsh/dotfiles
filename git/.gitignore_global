@@ -26,3 +26,6 @@ try.py
 **/.terraform/*
 *.tfstate
 *.tfstate.*
+copy.sh
+
+**/.claude/settings.local.json
